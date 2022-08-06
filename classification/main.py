@@ -3,12 +3,11 @@ import pandas as pd
 import tensorflow as tf
 import numpy as np
 
-data = pd.read_csv('trainingData/woven.csv')
+data = pd.read_csv('../trainingData/woven.csv')
 data = data[1:]
 data = data.dropna()
 
 yTemp = data['WeightOut'] #무게로 할지 두께로 할지
-# yTemp = data['ThickOut']
 yData = []
 for j, y in enumerate(yTemp):
     temp = []
@@ -19,11 +18,6 @@ for j, y in enumerate(yTemp):
         else:
             temp.append(0)
     yData.append(temp)
-# print(yData)
-# exit()
-# yData = data['ThickOut']
-# [0, 0, 0, 0, 0, 0, 1]
-
 xData = []
 
 for i, rows in data.iterrows():
