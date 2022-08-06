@@ -7,7 +7,7 @@ data = pd.read_csv('../output.csv')
 data = data.dropna()
 
 # print(data)
-yData = data['WeightOut'] #무게로 할지 두께로 할지
+yData = data['Weight'] #무게로 할지 두께로 할지
 
 xData = []
 

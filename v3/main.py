@@ -8,7 +8,7 @@ data = pd.read_csv('../output.csv')
 data = data[1:]
 data = data.dropna()
 
-yData = data['WeightOut']
+yData = data['Weight']
 xData = []
 
 for i, rows in data.iterrows():
@@ -29,17 +29,6 @@ model.compile(optimizer='rmsprop', loss='mse')
 # 4. 모델 학습시키기
 hist = model.fit(xData, yData, epochs=50)
 
-# 5. 학습과정 살펴보기
-# matplotlib inline
-import matplotlib.pyplot as plt
-
-plt.plot(hist.history['loss'])
-plt.ylim(0.0, 1.5)
-plt.ylabel('loss')
-plt.xlabel('epoch')
-plt.legend(['train'], loc='upper left')
-plt.show()
-
-# 6. 모델 평가하기
+# 5. 모델 평가하기
 loss = model.evaluate(xData, yData, batch_size=32)
 print('loss : ' + str(loss))
